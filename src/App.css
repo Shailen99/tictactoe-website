@@ -1,33 +1,168 @@
-.App {
+body {
+  font: 24px 'Century Gothic', Futura, sans-serif;
+  margin: 20px;
+  background-image: url(https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+  background-size: cover;
+  height: 1000px;
+
+}
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
+.ownership
+{
+  color: #000000;
+  position: absolute;
+
+}
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+    border: 1px solid #cfc8b8;
+  float: left;
+  font-size: 4px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+
+}
+
+.square--green {
+  background: green;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #cfc8b8;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.button {
+  background-color: #cfc8b8	;
+  border: none;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button--black {
+  background-color: #000000	;
+  color: #000;
+  font-weight: bold;
+}
+
+
+.square {
+  font-size: 4rem;
+  height: 140px;
+  width: 140px;
+  color: #cfc8b8;
+  border: 4px solid #cfc8b8;
+}
+.square:hover {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  background-color: #e6e2da;
+  cursor: pointer;
+}
+
+.game-board {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
+}
+
+.game-info {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+}
+
+.game-info__status,
+.game-info__moves {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1rem;
+}
+
+.game-info__status {
+  font-size: 2rem;
+}
+.game-info__status {
+  color: #fff;
+  background-color: #FFFFFF;
+}
+
+.game-info__moves {
+  background-color: #cfc8b8;
+}
+
+.game-info__moves .list-moves li {
+  margin-bottom: 0.5rem;
+}
+
+
+
+h3 {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bounce {
+  background: #cfc8b8;
+  text-align: center;
+  padding: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  -webkit-transform: rotate(-25deg) translateX(-20px) translateY(100px);
+          transform: rotate(-25deg) translateX(-20px) translateY(100px);
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
 }
