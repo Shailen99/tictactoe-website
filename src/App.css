@@ -1,6 +1,7 @@
 body {
   font: 24px 'Century Gothic', Futura, sans-serif;
   margin: 20px;
+  /* Background Image: Load Url and cover whole page */
   background-image: url(https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
   background-size: cover;
   height: 1000px;
@@ -12,7 +13,7 @@ ul {
   padding-left: 30px;
 }
 
-.ownership
+.ownership /* Text: Shailen Sheth */
 {
   color: #000000;
   position: absolute;
@@ -44,7 +45,7 @@ ul {
 }
 
 .square--green {
-  background: green;
+  background: green; /* Color when winner is found and needs to display who won*/
 }
 
 .square:focus {
@@ -148,21 +149,4 @@ ul {
 
 .game-info__moves .list-moves li {
   margin-bottom: 0.5rem;
-}
-
-
-
-h3 {
-  text-align: center;
-}
-.bounce {
-  background: #cfc8b8;
-  text-align: center;
-  padding: 1rem;
-  padding: 1rem;
-  font-size: 2rem;
-  -webkit-transform: rotate(-25deg) translateX(-20px) translateY(100px);
-          transform: rotate(-25deg) translateX(-20px) translateY(100px);
-  -webkit-transition: 0.4s all;
-  transition: 0.4s all;
 }

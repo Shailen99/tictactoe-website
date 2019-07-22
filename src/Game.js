@@ -23,6 +23,8 @@ const calculateWinner = (squares) => {
   return { winner: null, winnerRow: null };
 };
 
+
+/* Find location of where last move occurred by giving each sqaure a value between 1-8 */
 const getLocation = (move) => {
   const locationMap = {
     0: 'row: 1, col: 1',

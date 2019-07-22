@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
+import './App.css'; //Add CSS for whole application just here
 import Game from './Game';
 import * as serviceWorker from './serviceWorker';
+
+//Render Game, Board and Sqaure all in same page
 
 ReactDOM.render(<Game />, document.getElementById('root'));
 
