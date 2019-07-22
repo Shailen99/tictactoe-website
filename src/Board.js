@@ -28,7 +28,7 @@ class Board extends React.Component {
         ? 'square--green'
         : '';
 
-    return (
+    return ( /* What makes up a square class */
       <Square
         winnerClass={winnerClass}
         key={i}

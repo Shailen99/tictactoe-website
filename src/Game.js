@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './Board';
 
+/* Give all examples of winning combinations and determine if a combination has occurred */
 const calculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
@@ -38,7 +39,7 @@ const getLocation = (move) => {
     8: 'row: 3, col: 3',
   };
 
-  return locationMap[move];
+  return locationMap[move]; /* Show last location of player */
 };
 
 class Game extends React.Component {
@@ -65,7 +66,7 @@ class Game extends React.Component {
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
-      history: history.concat([
+      history: history.concat([ /* History button (shows what has happened)*/
         {
           squares,
           currentLocation: getLocation(i),
@@ -82,23 +83,24 @@ class Game extends React.Component {
       currentStepNumber: step,
       xIsNext: step % 2 === 0,
     });
-  }
+  } /* Jump to is used to calculate which step number has occurred  */
 
   sortMoves() {
     this.setState({
       history: this.state.history.reverse(),
     });
-  }
+  } /* it sorts a history from ascending to descending or descending to ascending based on the current array sort*/
 
   render() {
     const { history } = this.state;
-    const current = history[this.state.currentStepNumber];
-    const { winner, winnerRow } = calculateWinner(current.squares);
+    const current = history[this.state.currentStepNumber]; /* Step number determines currentness of button*/
+    const { winner, winnerRow } = calculateWinner(current.squares); /* Checks after every new step if a winner has been found*/
 
+/* Shows the buttons on the side, and determines if winner has occurred*/
     const moves = history.map((step, move) => {
-      const currentLocation = step.currentLocation ? `(${step.currentLocation})` : '';
-      const desc = step.stepNumber ? `Go to move #${step.stepNumber}` : 'Go to game start';
-      const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
+    const currentLocation = step.currentLocation ? `(${step.currentLocation})` : '';
+    const desc = step.stepNumber ? `Go to move #${step.stepNumber}` : 'Go to game start';
+    const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
 
       return (
         <li key={step.stepNumber}>
@@ -112,7 +114,7 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = `Winner ${winner}`;
-    } else if (history.length === 10) {
+    } else if (history.length === 10) /* If 9 moves have occured and no winner is found then it is a draw*/ {
       status = 'Draw. No one won.';
     } else {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
