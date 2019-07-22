@@ -1,6 +1,8 @@
 import React from 'react';
 import Square from './Square';
 
+
+
 class Board extends React.Component {
   createBoard(row, col) {
     const board = [];
@@ -14,7 +16,7 @@ class Board extends React.Component {
       board.push(<div key={i} className="board-row">{columns}</div>);
     }
 
-    return board;
+    return board; //Renders a board using a double for-loop to make the table instead of hardcoding it.
   }
 
   renderSquare(i) {
@@ -37,7 +39,7 @@ class Board extends React.Component {
   }
 
   render() {
-    return <div>{this.createBoard(3, 3)}</div>;
+    return <div>{this.createBoard(3, 3)}</div>; //Renders a board with 3 rows and 3 columns
   }
 }
 

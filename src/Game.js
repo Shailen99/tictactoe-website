@@ -118,7 +118,7 @@ class Game extends React.Component {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
-    return (
+    return ( /*Render all game elements */
       <div className="game">
         <div className="game-board">
           <Board
