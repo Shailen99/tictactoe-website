@@ -2,7 +2,6 @@ import React from 'react';
 import Square from './Square';
 
 
-
 class Board extends React.Component {
   createBoard(row, col) {
     const board = [];

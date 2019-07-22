@@ -25,6 +25,7 @@ const calculateWinner = (squares) => {
 };
 
 
+
 /* Find location of where last move occurred by giving each sqaure a value between 1-8 */
 const getLocation = (move) => {
   const locationMap = {
@@ -56,6 +57,9 @@ class Game extends React.Component {
     };
   }
 
+
+
+
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.currentStepNumber + 1);
     const current = history[history.length - 1];
@@ -80,8 +84,10 @@ class Game extends React.Component {
 
   jumpTo(step) {
     this.setState({
+
       currentStepNumber: step,
       xIsNext: step % 2 === 0,
+
     });
   } /* Jump to is used to calculate which step number has occurred  */
 
@@ -90,7 +96,10 @@ class Game extends React.Component {
       history: this.state.history.reverse(),
     });
   } /* it sorts a history from ascending to descending or descending to ascending based on the current array sort*/
-
+  refreshButton()
+  {
+    window.location.reload();
+  }
   render() {
     const { history } = this.state;
     const current = history[this.state.currentStepNumber]; /* Step number determines currentness of button*/
@@ -99,9 +108,10 @@ class Game extends React.Component {
 /* Shows the buttons on the side, and determines if winner has occurred*/
     const moves = history.map((step, move) => {
     const currentLocation = step.currentLocation ? `(${step.currentLocation})` : '';
-    const desc = step.stepNumber ? `Go to move #${step.stepNumber}` : 'Go to game start';
-    const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
 
+    const desc = step.stepNumber ? `Go to move #${step.stepNumber}` : 'Go to game start';
+
+    const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
       return (
         <li key={step.stepNumber}>
           <button className={`${classButton} button`} onClick={() => this.jumpTo(move)}>
@@ -109,16 +119,23 @@ class Game extends React.Component {
           </button>
         </li>
       );
+
     });
 
     let status;
     if (winner) {
       status = `Winner ${winner}`;
-    } else if (history.length === 10) /* If 9 moves have occured and no winner is found then it is a draw*/ {
+    } else if (history.length == 10) /* If 9 moves have occured and no winner is found then it is a draw*/ {
       status = 'Draw. No one won.';
-    } else {
+    }
+    else if (history.length > 10)
+    {
+      status = "Sorry, the game is broken."
+    }
+    else {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
+
 
     return ( /*Render all game elements */
       <div className="game">
@@ -131,6 +148,8 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <button className = "button"> Rules</button>
+          <button className = "button" onClick = {() => window.location.reload()}> Restart Game</button>
           <button className="button" onClick={() => this.sortMoves()}>
             Sort moves
           </button>
@@ -138,6 +157,7 @@ class Game extends React.Component {
           <div className = "Ownership">
           <p>By Shailen Sheth </p>
           </div>
+
 
         </div>
       </div>
